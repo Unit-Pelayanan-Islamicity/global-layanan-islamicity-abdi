@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Amiri", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Global Dark Mode Surface & Readability Mapping across all 4B Pillars */
+html.dark body {
+  background-color: #020617;
+  color: #f1f5f9;
+}
+
+html.dark .bg-white {
+  background-color: #0f172a;
+}
+
+html.dark .bg-white\/95,
+html.dark .bg-white\/90,
+html.dark .bg-white\/80 {
+  background-color: rgba(15, 23, 42, 0.92);
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-gray-50 {
+  background-color: #020617;
+}
+
+html.dark .bg-slate-50\/80,
+html.dark .bg-slate-50\/60,
+html.dark .bg-slate-50\/50,
+html.dark .bg-slate-50\/40,
+html.dark .bg-gray-50\/80,
+html.dark .bg-gray-50\/50 {
+  background-color: rgba(15, 23, 42, 0.72);
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-gray-100 {
+  background-color: #1e293b;
+}
+
+html.dark .bg-slate-200,
+html.dark .bg-gray-200 {
+  background-color: #334155;
+}
+
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-50\/80,
+html.dark .bg-emerald-50\/70,
+html.dark .bg-emerald-50\/60,
+html.dark .bg-emerald-50\/50,
+html.dark .bg-emerald-50\/40,
+html.dark .bg-emerald-50\/30,
+html.dark .bg-emerald-50\/20,
+html.dark .bg-teal-50 {
+  background-color: rgba(6, 78, 59, 0.26);
+}
+
+html.dark .bg-emerald-100,
+html.dark .bg-emerald-100\/70,
+html.dark .bg-emerald-100\/60,
+html.dark .bg-emerald-100\/50,
+html.dark .bg-teal-100 {
+  background-color: rgba(6, 95, 70, 0.42);
+}
+
+html.dark .bg-amber-50,
+html.dark .bg-amber-50\/80,
+html.dark .bg-amber-50\/60,
+html.dark .bg-amber-50\/50 {
+  background-color: rgba(120, 53, 15, 0.26);
+}
+
+html.dark .bg-amber-100,
+html.dark .bg-amber-100\/80 {
+  background-color: rgba(146, 64, 14, 0.4);
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-indigo-50,
+html.dark .bg-sky-50 {
+  background-color: rgba(30, 58, 138, 0.28);
+}
+
+html.dark .bg-red-50,
+html.dark .bg-rose-50 {
+  background-color: rgba(127, 29, 29, 0.28);
+}
+
+/* Borders in Dark Mode */
+html.dark .border-slate-200,
+html.dark .border-slate-100,
+html.dark .border-slate-300,
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: #1e293b;
+}
+
+html.dark .border-emerald-100,
+html.dark .border-emerald-200,
+html.dark .border-emerald-200\/80,
+html.dark .border-emerald-300,
+html.dark .border-teal-100,
+html.dark .border-teal-200 {
+  border-color: rgba(16, 185, 129, 0.24);
+}
+
+html.dark .border-amber-100,
+html.dark .border-amber-200 {
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+/* Light-surface text inversion (preserving dark text on bright amber/gold accents) */
+html.dark :is(.text-slate-900, .text-slate-800, .text-gray-900, .text-gray-800):not([class*="bg-amber-"], [class*="bg-amber-"] *) {
+  color: #f1f5f9;
+}
+
+html.dark :is(.text-slate-700, .text-slate-600, .text-gray-700, .text-gray-600):not([class*="bg-amber-"], [class*="bg-amber-"] *) {
+  color: #cbd5e1;
+}
+
+html.dark :is(.text-slate-500, .text-gray-500):not([class*="bg-amber-"], [class*="bg-amber-"] *) {
+  color: #94a3b8;
+}
+
+html.dark :is(.text-emerald-950, .text-emerald-900, .text-emerald-800):not(
+  [class*="bg-amber-"],
+  [class*="bg-amber-"] *,
+  [class*="from-emerald-400"],
+  [class*="from-emerald-400"] *,
+  [class*="from-orange-500"],
+  [class*="from-orange-500"] *
+) {
+  color: #a7f3d0;
+}
+
+html.dark .text-emerald-700:not([class*="bg-amber-"], [class*="bg-amber-"] *) {
+  color: #34d399;
+}
+
+html.dark :is(.text-amber-900, .text-amber-800, .text-amber-700):not([class*="bg-amber-2"], [class*="bg-amber-3"], [class*="bg-amber-4"], [class*="bg-amber-5"]) {
+  color: #fcd34d;
+}
+
+html.dark .hover\:bg-emerald-50:hover,
+html.dark .hover\:bg-emerald-100\/50:hover,
+html.dark .hover\:bg-slate-50:hover,
+html.dark .hover\:bg-slate-100:hover,
+html.dark .hover\:bg-gray-100:hover {
+  background-color: #1e293b;
+}
